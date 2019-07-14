@@ -29,20 +29,18 @@ public class GUI extends JFrame {
     private JButton DelE = new JButton("DelE");
     private JButton NewV = new JButton("NewV");
     private JButton DelV = new JButton("DelV");
-    private JButton BB = new JButton("BB");
-    private JButton B1 = new JButton("BB");
+    private JButton BB = new JButton("Назад");
+    private JButton B1 = new JButton("Назад");
     private GraphPlane graph = new GraphPlane();
-    private GraphPlane graph2 = new GraphPlane();
     JPanel down_panel = new JPanel();
     JPanel up_panel = new JPanel();
     JPanel create_panel = new JPanel();
-    private JLabel important_to_add=new JLabel("Developed By KK");
-    //JPanel  = new JPanel();
+    private JLabel important_to_add=new JLabel("Developed By KKB");
     private int ar[][];
 
     public GUI() {
         super("MainWindow");
-        this.setBounds(250, 150, 1000, 700); //само окно
+        this.setBounds(250, 150, 1000, 800); //само окно
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //закрытие окна
 
         setPreferredSize(SIZE_OF_GRAPH_FIELD);    //Размер рамки
@@ -50,7 +48,7 @@ public class GUI extends JFrame {
         up_panel.setLayout(null);
         down_panel.setLayout(null);
         create_panel.setLayout(null);
-        important_to_add.setBounds(0,0,200,15);
+        important_to_add.setBounds(300,610,200,15);
         add(important_to_add);
 
         in_from_file.addActionListener(new InFromFileEvent());//вызов чего то при нажатии
@@ -74,10 +72,9 @@ public class GUI extends JFrame {
         up_panel.add(start_algorithm);
 
         graph.setBackground(GRAPH_FIELD_BACKGROUND);
-        graph.setBounds(250,110,600,500);
+        graph.setBounds(200,110,600,500);
         getContentPane().add(graph);
         repaint();
-        // setPreferredSize(new Dimension(285,145));
 
         to_start.addActionListener(new Step_to_start());
         to_start.setBounds(100, 10, 200, 100);
@@ -123,13 +120,13 @@ public class GUI extends JFrame {
         down_panel.setVisible(false);
         create_panel.setVisible(false);
         getContentPane().add(up_panel); //форма
+        //pack();
 
     }
 
     class InFromFileEvent implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            String s = "Здесь будет ввод с файла.";
-            JOptionPane.showMessageDialog(null, s, "Output", JOptionPane.PLAIN_MESSAGE);
+            Filer in =new Filer(graph);
         }
     }
 

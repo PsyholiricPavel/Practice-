@@ -26,11 +26,11 @@ import static Window.Windows_par.*;
 public class KeyInAlgo extends JPanel {
     private JButton B1 = new JButton("OK");
     private JButton B2 = new JButton("OK");
-    private JTextField number = new JTextField("",5);
+    private JComboBox number = new JComboBox();
     private JLabel Dia[];
     JTextField in[][];
     static int[][] arr;
-    private int n=2;
+    private int n=2,i;
     JFrame Parent;
 
 
@@ -42,6 +42,9 @@ public class KeyInAlgo extends JPanel {
         add(B1);
         number.setBounds(300,10,100,100);
         add(number);
+        for(i=3;i<10;i++) {
+            number.addItem(i);
+        }
         this.Parent=Parent;
         //arr=ar;
     }
@@ -50,7 +53,7 @@ public class KeyInAlgo extends JPanel {
             int i,j;
             setLayout(null);
             //System.out.println("sdada");
-            n= Integer.parseInt(number.getText());
+            n= Integer.parseInt(number.getSelectedItem().toString());
            /* System.out.println("\n\n");
             System.out.println(n);
             System.out.println("\n\n");*/
